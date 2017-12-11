@@ -19,10 +19,16 @@ cal = (num, opr) ->
         result = add num[0], num[1]
     else if opr is '-'
         result = minus num[0], num[1]
+    else if opr is '*'
+        result = multiply num[0], num[1]
     alert result
     
 add = (num1, num2) -> num1 + num2
 
 minus = (num1, num2) -> num1 - num2
+
+multiply = (num1, num2) -> num1 * num2
+
+
 
     
