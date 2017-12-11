@@ -1,7 +1,7 @@
 this.submit = () ->
     num = getNum()
     opr = getOperator()
-    cal num, opr 
+    cal num[0], num[1], opr 
     alert opr
 
 
@@ -21,14 +21,22 @@ showResult = (text) ->
     document.getElementById('history').appendChild node
     return
 
-cal = (num, opr) ->
+cal = (num1, num2, opr) ->
     if opr is '+'
-        result = add num[0], num[1]
+        result = add num1, num2
     else if opr is '-'
-        result = minus num[0], num[1]
+        result = minus num1, num2
     else if opr is '*'
-        result = multiply num[0], num[1]
-    showResult [num[0], opr, num[1], '=', result].join ' '
+        result = multiply num1, num2
+    else if opr is '/'
+        if num2 is 0
+            return alert 'cannot divided by 0'
+        result = devide num1, num2
+    else if opr is '%'
+        if num2 is 0
+            return alert 'cannot mod by 0'
+        result = mod num1, num2
+    showResult [num1, opr, num2, '=', result].join ' '
     alert result
     
 add = (num1, num2) -> num1 + num2
@@ -36,6 +44,10 @@ add = (num1, num2) -> num1 + num2
 minus = (num1, num2) -> num1 - num2
 
 multiply = (num1, num2) -> num1 * num2
+
+devide = (num1, num2) -> num1 / num2
+
+mod = (num1, num2) -> num1 % num2
 
 
 
