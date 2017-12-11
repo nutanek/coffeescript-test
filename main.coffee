@@ -36,18 +36,20 @@ cal = (num1, num2, opr) ->
         if num2 is 0
             return alert 'cannot mod by 0'
         result = mod num1, num2
+    else if opr is '^'
+        result = power num1, num2
     showResult [num1, opr, num2, '=', result].join ' '
     alert result
-    
+
+# operation
 add = (num1, num2) -> num1 + num2
-
 minus = (num1, num2) -> num1 - num2
-
 multiply = (num1, num2) -> num1 * num2
-
 devide = (num1, num2) -> num1 / num2
-
 mod = (num1, num2) -> num1 % num2
+power = (num1, num2) -> Math.pow num1, num2
+
+
 
 
 
