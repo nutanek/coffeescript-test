@@ -1,13 +1,14 @@
 this.submit = () ->
     num = getNum()
     opr = getOperator()
-    cal num[0], num[1], opr 
-    alert opr
+    cal num[0], num[1], opr
 
 
 getNum = (id1, id2) ->
     num1 = parseFloat document.getElementById('num1').value
     num2 = parseFloat document.getElementById('num2').value
+    if isNaN(num1) or isNaN(num2)
+        return alert 'please input number'
     [num1, num2]
 
 getOperator = () ->
@@ -39,7 +40,6 @@ cal = (num1, num2, opr) ->
     else if opr is '^'
         result = power num1, num2
     showResult [num1, opr, num2, '=', result].join ' '
-    alert result
 
 # operation
 add = (num1, num2) -> num1 + num2
